@@ -1,3 +1,6 @@
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Scanner;
 
 public class NumericConverter {
@@ -11,7 +14,8 @@ public class NumericConverter {
         System.out.println("Número binário = " + decimalToBinary(numDecimal));
         System.out.println("Número hexadecimal = " + decimalToHexadecimal(numDecimal));
     }
-    private static String decimalToBinary(int numDecimal) {
+    @Contract(pure = true)
+    private static @NotNull String decimalToBinary(int numDecimal) {
         if (numDecimal == 0) {
             return "0";
         } else if (numDecimal == 1) {
@@ -22,7 +26,7 @@ public class NumericConverter {
             return decimalToBinary(quotient) + rest;
         }
     }
-    private static String decimalToHexadecimal(int numDecimal) {
+    private static @NotNull String decimalToHexadecimal(int numDecimal) {
         if (numDecimal == 0) {
             return "0";
         } else {
